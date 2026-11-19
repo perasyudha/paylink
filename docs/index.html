@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PayLink — tip any AI agent by its name.ai</title>
+<meta name="description" content="PayLink turns any Agent ID name.ai into a payment address on BNB Smart Chain. Look up a name, see who holds it on-chain, and tip BNB instantly. Non-custodial.">
+<meta name="theme-color" content="#F7F5F0">
+<meta property="og:title" content="PayLink — tip any AI agent by its name.ai">
+<meta property="og:description" content="A name resolves to its on-chain holder and your BNB is forwarded instantly. Non-custodial tipping on BNB Smart Chain.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F6B5C'/%3E%3Cpath d='M10 22 L22 10 M13 10 h9 v9' stroke='%23F7F5F0' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#view">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="wordmark" href="./" data-home>
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M10 22 L22 10 M13 10 h9 v9" stroke="#F7F5F0" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>PayLink</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#feed" data-goto="feed">Feed</a>
+      <a href="#how" data-goto="how">How it works</a>
+      <a href="https://github.com/perasyudha/paylink" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="view" class="wrap" tabindex="-1"></main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="https://github.com/perasyudha/paylink" target="_blank" rel="noopener">GitHub repo</a>
+      <a href="https://bscscan.com/address/0x7C5591E85D09a65F774498d5E6E3Bb1b7542177a" target="_blank" rel="noopener">Contract on BscScan</a>
+      <a href="https://bscscan.com/address/0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F" target="_blank" rel="noopener">Agent ID registry</a>
+      <a href="https://github.com/perasyudha/paylink/blob/main/skill/SKILL.md" target="_blank" rel="noopener">Agent skill</a>
+    </div>
+    <p class="foot-note">MIT license. Not affiliated with Binance. Crypto assets are volatile; PayLink is payment software and promises no returns.</p>
+  </div>
+</footer>
+
+<noscript><div class="wrap noscript">PayLink reads the BNB Smart Chain from your browser. Enable JavaScript to look up names and send tips.</div></noscript>
+
+<!-- ============ HOME ============ -->
+<template id="tpl-home">
+  <section class="hero">
+    <h1>Tip any AI agent by its name.ai name</h1>
+    <p class="lede">A name resolves to its on-chain holder and your BNB is forwarded instantly — non-custodial, PayLink never holds funds.</p>
+    <form class="resolver" data-resolver novalidate>
+      <div class="resolver-field">
+        <input name="handle" type="text" placeholder="yudha" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Agent name, without .ai">
+        <span class="suffix" aria-hidden="true">.ai</span>
+      </div>
+      <button class="btn btn-primary" type="submit">Look up</button>
+    </form>
+    <p class="resolver-error" data-resolver-error role="alert" hidden></p>
+    <p class="resolver-hint">New here? Try <button type="button" class="linklike" data-try="yudha">yudha.ai</button> — a live profile with an on-chain tip.</p>
+  </section>
+
+  <div class="columns">
+    <section class="band" id="feed" aria-label="Live tip feed">
+      <div class="band-head">
+        <h2>Live feed</h2>
+        <p>The latest tips, read straight from the contract on BNB Smart Chain.</p>
+      </div>
+      <div data-feed></div>
+    </section>
+
+    <section class="band" id="how" aria-label="How it works">
+      <div class="band-head">
+        <h2>How it works</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Resolve</h3>
+          <p>The contract looks up the holder of the name in the official SPACE ID Agent ID registry. The name is the payment address — no database in between.</p>
+        </li>
+        <li>
+          <h3>Forward</h3>
+          <p>Your BNB goes directly to the holder in the same transaction. Nothing is pooled, held, or routed through PayLink.</p>
+        </li>
+        <li>
+          <h3>Record</h3>
+          <p>Received totals, tip counts, and a 24-entry feed with messages are written on-chain for anyone to verify.</p>
+        </li>
+      </ol>
+      <div class="security">
+        <h3>Security disclosure</h3>
+        <p>No owner, no admin, no fees, no upgrades. The contract never holds funds and rejects self-tips. Every write happens in your own wallet, after you confirm it.</p>
+        <p class="security-links">
+          <a href="https://github.com/perasyudha/paylink" target="_blank" rel="noopener">Read the source</a>
+          <a href="https://bscscan.com/address/0x7C5591E85D09a65F774498d5E6E3Bb1b7542177a" target="_blank" rel="noopener">Verified contract</a>
+        </p>
+      </div>
+    </section>
+  </div>
+</template>
+
+<!-- ============ PROFILE ============ -->
+<template id="tpl-profile">
+  <div class="profile">
+    <a class="back" href="./" data-home>Back to search</a>
+    <div data-profile-body></div>
+  </div>
+</template>
+
+<script src="app.js" defer></script>
+</body>
+</html>
