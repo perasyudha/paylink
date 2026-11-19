@@ -17,7 +17,7 @@ bypass, batch, or automate confirmation (hackathon red line and general wallet s
 
 1. Normalize the handle: lowercase, strip `.ai` (e.g. `Yudha.ai` → `yudha`).
 2. Resolve + sanity-check with a read-only `eth_call` to the registry (public RPC
-   `https://bsc-dataseed.binance.org`): `ownerOfHandle(string)` selector `0x<keccak4>` — or use
+   `https://bsc-dataseed.binance.org`): `ownerOfHandle(string)` selector `0x1da94fb4` — or use
    `baw wallet resolve-domain --name <handle>.ai --binanceChainId 56 --json`. If it returns the zero
    address or errors, STOP and tell the user the name is not registered. Show the resolved address
    in full.

@@ -46,7 +46,7 @@ ABI: [`web/abi.json`](web/abi.json).
 ## Use it
 
 ### Web app
-`site/` is a static front-end (GitHub Pages): look up a name, see its profile and received tips,
+`docs/` is a static front-end (GitHub Pages): look up a name, see its profile and received tips,
 and send a tip with any injected EVM wallet (MetaMask, Rabby, …). Read-only data comes straight
 from BSC public RPC — **no server, no accounts, no sessions, no QR/pairing login**.
 
